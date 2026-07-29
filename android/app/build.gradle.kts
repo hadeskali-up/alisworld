@@ -1,7 +1,6 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("com.google.gms.google-services")
     kotlin("plugin.serialization") version "1.9.22"
 }
 
@@ -74,27 +73,19 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.7.7")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
 
-    // Ktor client
-    implementation("io.ktor:ktor-client-android:2.3.8")
-    implementation("io.ktor:ktor-client-content-negotiation:2.3.8")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.8")
-    implementation("io.ktor:ktor-client-logging:2.3.8")
+    // Ktor (HTTP client)
+    implementation("io.ktor:ktor-client-android:2.3.7")
+    implementation("io.ktor:ktor-client-content-negotiation:2.3.7")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.7")
+    implementation("io.ktor:ktor-client-logging:2.3.7")
 
-    // Kotlinx Serialization
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2")
-
-    // Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-
+    // Accompanist (SwipeRefresh)
+    implementation("com.google.accompanist:accompanist-swiperefresh:0.34.0")
     // DataStore for settings
     implementation("androidx.datastore:datastore-preferences:1.0.0")
 
     // Security for encrypted storage
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
-
-    // Firebase Cloud Messaging
-    implementation(platform("com.google.firebase:firebase-bom:32.7.2"))
-    implementation("com.google.firebase:firebase-messaging-ktx")
 
     // Debug
     debugImplementation("androidx.compose.ui:ui-tooling")
