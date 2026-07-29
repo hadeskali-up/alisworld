@@ -2,7 +2,7 @@ name: Android Build
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   workflow_dispatch:
 
 jobs:
@@ -23,12 +23,11 @@ jobs:
       working-directory: android
       run: |
         echo "sdk.dir=$ANDROID_HOME" > local.properties
-        echo "backend.url=${{ secrets.BACKEND_URL }}" >> local.properties
-        echo "backend.apiKey=${{ secrets.BACKEND_API_KEY }}" >> local.properties
     
-    - name: Create google-services.json
+    - name: Create google-services.json placeholder
       working-directory: android/app
-      run: echo '${{ secrets.GOOGLE_SERVICES_JSON }}' > google-services.json
+      run: |
+        echo '{"project_info":{"project_number":"000000000000","project_id":"alisworld-placeholder"}}' > google-services.json
     
     - name: Create keystore
       working-directory: android/app
