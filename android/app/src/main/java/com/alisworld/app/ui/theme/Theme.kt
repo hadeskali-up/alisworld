@@ -14,7 +14,7 @@ private val DarkColorScheme = darkColorScheme(
     primary = AlisPurple,
     onPrimary = Surface,
     primaryContainer = AlisLavenderDark,
-    onPrimaryContainer = ColorWhite,
+    onPrimaryContainer = Surface,
     secondary = DarkMuted,
     background = DarkBackground,
     onBackground = DarkText,
@@ -45,8 +45,6 @@ private val LightColorScheme = lightColorScheme(
     errorContainer = RedSoft,
     onErrorContainer = RedLoss
 )
-
-private val ColorWhite = Surface
 
 @Composable
 fun AlisWorldTheme(
