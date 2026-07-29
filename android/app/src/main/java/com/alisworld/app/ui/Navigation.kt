@@ -19,7 +19,7 @@ import com.alisworld.app.ui.screens.HistoryScreen
 sealed class Screen(val route: String, val title: String, val icon: androidx.compose.ui.graphics.vector.ImageVector) {
     object Dashboard : Screen("dashboard", "Dashboard", Icons.Default.Home)
     object Positions : Screen("positions", "Positions", Icons.Default.List)
-    object History : Screen("history", "History", Icons.Default.AccessTime)
+    object History : Screen("history", "History", Icons.Default.Schedule)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
