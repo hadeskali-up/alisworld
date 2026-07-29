@@ -31,22 +31,39 @@ class ApiClient {
         }
 
         defaultRequest {
-            url(BuildConfig.BACKEND_URL)
-            header("X-API-Key", BuildConfig.BACKEND_API_KEY)
+            url("https://bridge.alisuhari.top")
             contentType(ContentType.Application.Json)
         }
     }
 
     suspend fun getDashboardSummary(): Result<DashboardSummary> = runCatching {
-        client.get("/api/dashboard/summary").body()
+        val accountResp: MT5AccountResponse = client.get("/api/mt5-account").body()
+        DashboardSummary(
+            balance = accountResp.account.balance,
+            equity = accountResp.account.equity,
+            dailyPnl = accountResp.open_pnl,
+            dailyPnlPct = if (accountResp.account.balance > 0) 
+                (accountResp.open_pnl / accountResp.account.balance) * 100 else 0.0,
+            openPositionsCount = accountResp.open_positions,
+            openPositionsValue = accountResp.open_pnl,
+            currency = accountResp.account.currency,
+            lastUpdate = accountResp.last_updated
+        )
     }
 
     suspend fun getPositions(): Result<List<Position>> = runCatching {
-        client.get("/api/positions").body()
+        val resp: MT5PositionsResponse = client.get("/api/mt5-positions").body()
+        resp.positions
     }
 
     suspend fun closePosition(ticket: Long): Result<ClosePositionResponse> = runCatching {
-        client.post("/api/positions/$ticket/close").body()
+        val resp: CommandResponse = client.post("/api/mt5-commands") {
+            setBody(mapOf(
+                "command_type" to "close_position",
+                "payload" to mapOf("ticket" to ticket)
+            ))
+        }.body()
+        ClosePositionResponse(commandId = resp.id.toString(), status = resp.status)
     }
 
     suspend fun getHistory(
@@ -55,22 +72,53 @@ class ApiClient {
         limit: Int = 50,
         offset: Int = 0
     ): Result<HistoryResponse> = runCatching {
-        client.get("/api/history") {
-            parameter("sort", sort)
-            parameter("order", order)
+        val resp: MT5HistoryResponse = client.get("/api/mt5-history") {
             parameter("limit", limit)
-            parameter("offset", offset)
         }.body()
+        
+        // Convert MT5 deals to app format
+        HistoryResponse(
+            items = resp.deals.map { deal ->
+                HistoryItem(
+                    ticket = deal.ticket,
+                    symbol = deal.symbol,
+                    type = deal.type,
+                    volume = deal.volume,
+                    openPrice = deal.price,
+                    closePrice = deal.price,
+                    swap = deal.swap,
+                    commission = deal.commission,
+                    profit = deal.profit,
+                    result = if (deal.profit >= 0) "win" else "loss",
+                    closeReason = "",
+                    openTime = deal.time,
+                    closeTime = deal.time
+                )
+            },
+            total = resp.count,
+            hasMore = false
+        )
     }
 
     suspend fun getSymbolStats(): Result<SymbolStatsResponse> = runCatching {
-        client.get("/api/history/stats/by-symbol").body()
+        // Derive from history
+        val history = getHistory(limit = 200).getOrThrow()
+        val statsBySymbol = history.items
+            .groupBy { it.symbol }
+            .map { (symbol, trades) ->
+                SymbolStats(
+                    symbol = symbol,
+                    profit = trades.sumOf { it.profit },
+                    tradeCount = trades.size
+                )
+            }
+            .sortedByDescending { it.profit }
+        
+        SymbolStatsResponse(stats = statsBySymbol)
     }
 
     suspend fun registerFcmToken(token: String): Result<Unit> = runCatching {
-        client.post("/api/fcm/register") {
-            parameter("token", token)
-        }
+        // No-op for now (bridge doesn't handle FCM yet)
     }
 
     fun close() {
