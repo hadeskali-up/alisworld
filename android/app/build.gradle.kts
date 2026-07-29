@@ -21,15 +21,7 @@ android {
             useSupportLibrary = true
         }
 
-        // Inject backend config from local.properties
-        val localProperties = java.util.Properties()
-        val localPropertiesFile = rootProject.file("local.properties")
-        if (localPropertiesFile.exists()) {
-            localProperties.load(localPropertiesFile.inputStream())
-        }
-
-        buildConfigField("String", "BACKEND_URL", "\"${localProperties.getProperty("backend.url", "http://localhost:8000")}\"")
-        buildConfigField("String", "BACKEND_API_KEY", "\"${localProperties.getProperty("backend.apiKey", "")}\"")
+        // Bridge URL is hardcoded in ApiClient.kt (bridge.alisuhari.top)
     }
 
     buildTypes {
