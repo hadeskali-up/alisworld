@@ -1,0 +1,36 @@
+# Backend
+backend/.env
+backend/__pycache__/
+backend/*.db
+backend/*.db-shm
+backend/*.db-wal
+backend/venv/
+backend/.venv/
+
+# Pusher
+pusher/.env
+pusher/__pycache__/
+pusher/venv/
+pusher/.venv/
+
+# Android
+android/.gradle/
+android/build/
+android/local.properties
+android/app/build/
+android/app/release/
+android/app/google-services.json
+android/*.jks
+android/*.keystore
+android/keystore.properties
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
