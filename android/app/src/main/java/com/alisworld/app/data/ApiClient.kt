@@ -76,9 +76,11 @@ class ApiClient {
             parameter("limit", limit)
         }.body()
         
-        // Convert MT5 deals to app format
+        // MT5 deal entry=1 means a closing deal. Entry deals (entry=0) are excluded:
+        // the History tab is intentionally a realised-P&L view only.
+        val closedDeals = resp.deals.filter { it.entry == 1 }
         HistoryResponse(
-            items = resp.deals.map { deal ->
+            items = closedDeals.map { deal ->
                 HistoryItem(
                     ticket = deal.ticket,
                     symbol = deal.symbol,
@@ -90,12 +92,12 @@ class ApiClient {
                     commission = deal.commission,
                     profit = deal.profit,
                     result = if (deal.profit >= 0) "win" else "loss",
-                    closeReason = "",
+                    closeReason = deal.comment,
                     openTime = deal.time,
                     closeTime = deal.time
                 )
             },
-            total = resp.count,
+            total = closedDeals.size,
             hasMore = false
         )
     }
