@@ -25,6 +25,13 @@ fun PositionsScreen(viewModel: PositionsViewModel = viewModel()) {
         viewModel.loadPositions()
     }
     
+    LaunchedEffect(uiState.notice) {
+        if (uiState.notice != null) {
+            kotlinx.coroutines.delay(4_000)
+            viewModel.clearNotice()
+        }
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -35,6 +42,13 @@ fun PositionsScreen(viewModel: PositionsViewModel = viewModel()) {
             )
         }
     ) { paddingValues ->
+        Column(modifier = Modifier.padding(paddingValues)) {
+            uiState.notice?.let { message ->
+                Text(message, modifier = Modifier.fillMaxWidth().padding(12.dp), color = MaterialTheme.colorScheme.primary)
+            }
+            uiState.error?.let { message ->
+                Text(message, modifier = Modifier.fillMaxWidth().padding(12.dp), color = MaterialTheme.colorScheme.error)
+            }
         SwipeRefresh(
             state = rememberSwipeRefreshState(uiState.isLoading),
             onRefresh = { viewModel.loadPositions() },
@@ -77,6 +91,7 @@ fun PositionsScreen(viewModel: PositionsViewModel = viewModel()) {
                         items(uiState.positions, key = { it.ticket }) { position ->
                             PositionCard(
                                 position = position,
+                                isClosing = uiState.closingTicket == position.ticket,
                                 onClose = { viewModel.closePosition(position.ticket) }
                             )
                         }
@@ -84,11 +99,12 @@ fun PositionsScreen(viewModel: PositionsViewModel = viewModel()) {
                 }
             }
         }
+        }
     }
 }
 
 @Composable
-fun PositionCard(position: Position, onClose: () -> Unit) {
+fun PositionCard(position: Position, isClosing: Boolean, onClose: () -> Unit) {
     var showDialog by remember { mutableStateOf(false) }
     
     Card(
@@ -200,13 +216,18 @@ fun PositionCard(position: Position, onClose: () -> Unit) {
             
             // Close Button
             Button(
+                enabled = !isClosing,
                 onClick = { showDialog = true },
                 modifier = Modifier.fillMaxWidth(),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.error
-                )
+                colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.error)
             ) {
-                Text("Close Position")
+                if (isClosing) {
+                    CircularProgressIndicator(modifier = Modifier.size(18.dp), strokeWidth = 2.dp, color = MaterialTheme.colorScheme.onError)
+                    Spacer(Modifier.width(8.dp))
+                    Text("Queueing close...")
+                } else {
+                    Text("Close Position")
+                }
             }
         }
     }

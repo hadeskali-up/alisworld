@@ -13,8 +13,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.alisworld.app.ui.screens.DashboardScreen
-import com.alisworld.app.ui.screens.PositionsScreen
 import com.alisworld.app.ui.screens.HistoryScreen
+import com.alisworld.app.ui.screens.PositionsScreen
 
 sealed class Screen(val route: String, val title: String, val icon: androidx.compose.ui.graphics.vector.ImageVector) {
     object Dashboard : Screen("dashboard", "Dashboard", Icons.Default.Home)
@@ -27,27 +27,26 @@ sealed class Screen(val route: String, val title: String, val icon: androidx.com
 fun AlisWorldNavHost() {
     val navController = rememberNavController()
     val screens = listOf(Screen.Dashboard, Screen.Positions, Screen.History)
-    
+
+    fun navigateToTopLevel(screen: Screen) {
+        navController.navigate(screen.route) {
+            popUpTo(navController.graph.findStartDestination().id) { saveState = true }
+            launchSingleTop = true
+            restoreState = true
+        }
+    }
+
     Scaffold(
         bottomBar = {
             NavigationBar {
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
                 val currentDestination = navBackStackEntry?.destination
-                
                 screens.forEach { screen ->
                     NavigationBarItem(
                         icon = { Icon(screen.icon, contentDescription = screen.title) },
                         label = { Text(screen.title) },
                         selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
-                        onClick = {
-                            navController.navigate(screen.route) {
-                                popUpTo(navController.graph.findStartDestination().id) {
-                                    saveState = true
-                                }
-                                launchSingleTop = true
-                                restoreState = true
-                            }
-                        }
+                        onClick = { navigateToTopLevel(screen) }
                     )
                 }
             }
@@ -59,14 +58,7 @@ fun AlisWorldNavHost() {
             modifier = Modifier.padding(paddingValues)
         ) {
             composable(Screen.Dashboard.route) {
-                DashboardScreen(
-                    onOpenPositions = {
-                        navController.navigate(Screen.Positions.route) {
-                            launchSingleTop = true
-                            restoreState = true
-                        }
-                    }
-                )
+                DashboardScreen(onOpenPositions = { navigateToTopLevel(Screen.Positions) })
             }
             composable(Screen.Positions.route) { PositionsScreen() }
             composable(Screen.History.route) { HistoryScreen() }
