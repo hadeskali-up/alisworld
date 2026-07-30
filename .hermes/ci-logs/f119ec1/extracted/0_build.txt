@@ -1,0 +1,283 @@
+﻿2026-07-30T16:25:04.8661737Z Current runner version: '2.336.0'
+2026-07-30T16:25:04.8697546Z ##[group]Runner Image Provisioner
+2026-07-30T16:25:04.8698807Z Hosted Compute Agent
+2026-07-30T16:25:04.8699973Z Version: 20260707.563
+2026-07-30T16:25:04.8700980Z Commit: 02667638d2b423fbc733a8e32a88b44996a3ba6e
+2026-07-30T16:25:04.8702523Z Build Date: 2026-07-07T19:33:50Z
+2026-07-30T16:25:04.8703622Z Worker ID: {30835374-aa71-4a71-9c66-6d61c9117dbb}
+2026-07-30T16:25:04.8704744Z Azure Region: eastus2
+2026-07-30T16:25:04.8705792Z ##[endgroup]
+2026-07-30T16:25:04.8707975Z ##[group]Operating System
+2026-07-30T16:25:04.8709209Z Ubuntu
+2026-07-30T16:25:04.8710035Z 24.04.4
+2026-07-30T16:25:04.8710926Z LTS
+2026-07-30T16:25:04.8711781Z ##[endgroup]
+2026-07-30T16:25:04.8713057Z ##[group]Runner Image
+2026-07-30T16:25:04.8714181Z Image: ubuntu-24.04
+2026-07-30T16:25:04.8715569Z Version: 20260726.254.1
+2026-07-30T16:25:04.8717752Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260726.254/images/ubuntu/Ubuntu2404-Readme.md
+2026-07-30T16:25:04.8720538Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260726.254
+2026-07-30T16:25:04.8722404Z ##[endgroup]
+2026-07-30T16:25:04.8724606Z ##[group]GITHUB_TOKEN Permissions
+2026-07-30T16:25:04.8727542Z Contents: read
+2026-07-30T16:25:04.8728614Z Metadata: read
+2026-07-30T16:25:04.8729518Z Packages: read
+2026-07-30T16:25:04.8730617Z ##[endgroup]
+2026-07-30T16:25:04.8733916Z Secret source: Actions
+2026-07-30T16:25:04.8735700Z Prepare workflow directory
+2026-07-30T16:25:04.9199337Z Prepare all required actions
+2026-07-30T16:25:04.9268131Z Getting action download info
+2026-07-30T16:25:05.1208679Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-07-30T16:25:05.6328138Z Download action repository 'actions/setup-java@v4' (SHA:c1e323688fd81a25caa38c78aa6df2d33d3e20d9)
+2026-07-30T16:25:05.9310923Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-07-30T16:25:06.0524940Z Download action repository 'softprops/action-gh-release@v1' (SHA:de2c0eb89ae2a093876385947365aca7b0e5f844)
+2026-07-30T16:25:06.2982518Z Complete job name: build
+2026-07-30T16:25:06.3731517Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-30T16:25:06.3740813Z ##[group]Run actions/checkout@v4
+2026-07-30T16:25:06.3741522Z with:
+2026-07-30T16:25:06.3742164Z   repository: hadeskali-up/alisworld
+2026-07-30T16:25:06.3746221Z   token: ***
+2026-07-30T16:25:06.3746682Z   ssh-strict: true
+2026-07-30T16:25:06.3747145Z   ssh-user: git
+2026-07-30T16:25:06.3747617Z   persist-credentials: true
+2026-07-30T16:25:06.3748123Z   clean: true
+2026-07-30T16:25:06.3748588Z   sparse-checkout-cone-mode: true
+2026-07-30T16:25:06.3749118Z   fetch-depth: 1
+2026-07-30T16:25:06.3749600Z   fetch-tags: false
+2026-07-30T16:25:06.3750058Z   show-progress: true
+2026-07-30T16:25:06.3750514Z   lfs: false
+2026-07-30T16:25:06.3750982Z   submodules: false
+2026-07-30T16:25:06.3751451Z   set-safe-directory: true
+2026-07-30T16:25:06.3752078Z   allow-unsafe-pr-checkout: false
+2026-07-30T16:25:06.3752807Z ##[endgroup]
+2026-07-30T16:25:06.4780924Z Syncing repository: hadeskali-up/alisworld
+2026-07-30T16:25:06.4783963Z ##[group]Getting Git version info
+2026-07-30T16:25:06.4785110Z Working directory is '/home/runner/work/alisworld/alisworld'
+2026-07-30T16:25:06.4786718Z [command]/usr/bin/git version
+2026-07-30T16:25:06.4859241Z git version 2.54.0
+2026-07-30T16:25:06.4913122Z ##[endgroup]
+2026-07-30T16:25:06.4937424Z Temporarily overriding HOME='/home/runner/work/_temp/b30f601b-cbc3-404e-9f1e-468d603e167d' before making global git config changes
+2026-07-30T16:25:06.4939869Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-30T16:25:06.4943535Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/alisworld/alisworld
+2026-07-30T16:25:06.4998502Z Deleting the contents of '/home/runner/work/alisworld/alisworld'
+2026-07-30T16:25:06.5004027Z ##[group]Initializing the repository
+2026-07-30T16:25:06.5009536Z [command]/usr/bin/git init /home/runner/work/alisworld/alisworld
+2026-07-30T16:25:06.5100102Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-07-30T16:25:06.5101956Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-07-30T16:25:06.5104074Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-07-30T16:25:06.5105848Z hint: call:
+2026-07-30T16:25:06.5106703Z hint:
+2026-07-30T16:25:06.5107698Z hint: 	git config --global init.defaultBranch <name>
+2026-07-30T16:25:06.5108956Z hint:
+2026-07-30T16:25:06.5110142Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-07-30T16:25:06.5111859Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-07-30T16:25:06.5113481Z hint:
+2026-07-30T16:25:06.5114395Z hint: 	git branch -m <name>
+2026-07-30T16:25:06.5115368Z hint:
+2026-07-30T16:25:06.5116567Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-07-30T16:25:06.5118372Z Initialized empty Git repository in /home/runner/work/alisworld/alisworld/.git/
+2026-07-30T16:25:06.5121365Z [command]/usr/bin/git remote add origin https://github.com/hadeskali-up/alisworld
+2026-07-30T16:25:06.5160100Z ##[endgroup]
+2026-07-30T16:25:06.5161370Z ##[group]Disabling automatic garbage collection
+2026-07-30T16:25:06.5164743Z [command]/usr/bin/git config --local gc.auto 0
+2026-07-30T16:25:06.5197800Z ##[endgroup]
+2026-07-30T16:25:06.5199122Z ##[group]Setting up auth
+2026-07-30T16:25:06.5206324Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-30T16:25:06.5245886Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-30T16:25:06.5614006Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-30T16:25:06.5654681Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-30T16:25:06.5913924Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-30T16:25:06.5951855Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-30T16:25:06.6195040Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-07-30T16:25:06.6235358Z ##[endgroup]
+2026-07-30T16:25:06.6244198Z ##[group]Fetching the repository
+2026-07-30T16:25:06.6245789Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +f119ec1206752eba01707e0959a363516b570740:refs/remotes/origin/master
+2026-07-30T16:25:07.0015823Z From https://github.com/hadeskali-up/alisworld
+2026-07-30T16:25:07.0017164Z  * [new ref]         f119ec1206752eba01707e0959a363516b570740 -> origin/master
+2026-07-30T16:25:07.0056428Z ##[endgroup]
+2026-07-30T16:25:07.0057848Z ##[group]Determining the checkout info
+2026-07-30T16:25:07.0059801Z ##[endgroup]
+2026-07-30T16:25:07.0066664Z [command]/usr/bin/git sparse-checkout disable
+2026-07-30T16:25:07.0120039Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-07-30T16:25:07.0158508Z ##[group]Checking out the ref
+2026-07-30T16:25:07.0163323Z [command]/usr/bin/git checkout --progress --force -B master refs/remotes/origin/master
+2026-07-30T16:25:07.0263925Z Reset branch 'master'
+2026-07-30T16:25:07.0268187Z branch 'master' set up to track 'origin/master'.
+2026-07-30T16:25:07.0276922Z ##[endgroup]
+2026-07-30T16:25:07.0319789Z [command]/usr/bin/git log -1 --format=%H
+2026-07-30T16:25:07.0348903Z f119ec1206752eba01707e0959a363516b570740
+2026-07-30T16:25:07.0673551Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-30T16:25:07.0676395Z ##[group]Run actions/setup-java@v4
+2026-07-30T16:25:07.0676978Z with:
+2026-07-30T16:25:07.0677436Z   java-version: 17
+2026-07-30T16:25:07.0677937Z   distribution: temurin
+2026-07-30T16:25:07.0678452Z   cache: gradle
+2026-07-30T16:25:07.0678932Z   java-package: jdk
+2026-07-30T16:25:07.0679426Z   check-latest: false
+2026-07-30T16:25:07.0679929Z   server-id: github
+2026-07-30T16:25:07.0680435Z   server-username: GITHUB_ACTOR
+2026-07-30T16:25:07.0681017Z   server-password: GITHUB_TOKEN
+2026-07-30T16:25:07.0681618Z   overwrite-settings: true
+2026-07-30T16:25:07.0682303Z   job-status: success
+2026-07-30T16:25:07.0686554Z   token: ***
+2026-07-30T16:25:07.0687062Z ##[endgroup]
+2026-07-30T16:25:07.2271595Z ##[group]Installed distributions
+2026-07-30T16:25:07.2551232Z Resolved Java 17.0.20+8 from tool-cache
+2026-07-30T16:25:07.2562425Z (node:2181) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-07-30T16:25:07.2564684Z Setting Java 17.0.20+8 as the default
+2026-07-30T16:25:07.2566334Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-07-30T16:25:07.2567992Z Creating toolchains.xml for JDK version 17 from temurin
+2026-07-30T16:25:07.2634380Z Writing to /home/runner/.m2/toolchains.xml
+2026-07-30T16:25:07.2635371Z 
+2026-07-30T16:25:07.2635805Z Java configuration:
+2026-07-30T16:25:07.2636780Z   Distribution: temurin
+2026-07-30T16:25:07.2638146Z   Version: 17.0.20+8
+2026-07-30T16:25:07.2639490Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-8/x64
+2026-07-30T16:25:07.2640735Z 
+2026-07-30T16:25:07.2641767Z ##[endgroup]
+2026-07-30T16:25:07.2661484Z Creating settings.xml with server-id: github
+2026-07-30T16:25:07.2663533Z Writing to /home/runner/.m2/settings.xml
+2026-07-30T16:25:07.4110144Z Cache hit for: setup-java-Linux-x64-gradle-a5972982106a1f6ca56224d6b7857a6325b1ed8b20bf4283cf8203debffa2121
+2026-07-30T16:25:07.4214354Z (node:2181) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-07-30T16:25:08.4423145Z Received 163577856 of 1092210870 (15.0%), 156.0 MBs/sec
+2026-07-30T16:25:09.4463895Z Received 373293056 of 1092210870 (34.2%), 177.9 MBs/sec
+2026-07-30T16:25:10.4431738Z Received 532676608 of 1092210870 (48.8%), 169.3 MBs/sec
+2026-07-30T16:25:11.4437301Z Received 704643072 of 1092210870 (64.5%), 168.0 MBs/sec
+2026-07-30T16:25:12.4438342Z Received 931135488 of 1092210870 (85.3%), 177.5 MBs/sec
+2026-07-30T16:25:13.4113503Z Received 1092210870 of 1092210870 (100.0%), 174.5 MBs/sec
+2026-07-30T16:25:13.4114635Z Cache Size: ~1042 MB (1092210870 B)
+2026-07-30T16:25:13.4262100Z [command]/usr/bin/tar -xf /home/runner/work/_temp/d46816bc-4f3b-45b2-8b38-3b9c96fa23e8/cache.tzst -P -C /home/runner/work/alisworld/alisworld --use-compress-program unzstd
+2026-07-30T16:25:17.3409647Z Cache restored successfully
+2026-07-30T16:25:17.5564394Z Cache restored from key: setup-java-Linux-x64-gradle-a5972982106a1f6ca56224d6b7857a6325b1ed8b20bf4283cf8203debffa2121
+2026-07-30T16:25:17.5807632Z ##[group]Run echo "sdk.dir=$ANDROID_HOME" > local.properties
+2026-07-30T16:25:17.5808218Z [36;1mecho "sdk.dir=$ANDROID_HOME" > local.properties[0m
+2026-07-30T16:25:17.5863120Z shell: /usr/bin/bash -e {0}
+2026-07-30T16:25:17.5863427Z env:
+2026-07-30T16:25:17.5863797Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-8/x64
+2026-07-30T16:25:17.5864353Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-8/x64
+2026-07-30T16:25:17.5865048Z ##[endgroup]
+2026-07-30T16:25:17.5994011Z ##[group]Run echo '{"project_info":{"project_number":"000000000000","project_id":"alisworld-placeholder"}}' > google-services.json
+2026-07-30T16:25:17.5994908Z [36;1mecho '{"project_info":{"project_number":"000000000000","project_id":"alisworld-placeholder"}}' > google-services.json[0m
+2026-07-30T16:25:17.6039855Z shell: /usr/bin/bash -e {0}
+2026-07-30T16:25:17.6040136Z env:
+2026-07-30T16:25:17.6040485Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-8/x64
+2026-07-30T16:25:17.6041038Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-8/x64
+2026-07-30T16:25:17.6041442Z ##[endgroup]
+2026-07-30T16:25:17.6180095Z ##[group]Run echo "***" | base64 -d > release.jks
+2026-07-30T16:25:17.6199685Z [36;1mecho "***" | base64 -d > release.jks[0m
+2026-07-30T16:25:17.6244807Z shell: /usr/bin/bash -e {0}
+2026-07-30T16:25:17.6245106Z env:
+2026-07-30T16:25:17.6245457Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-8/x64
+2026-07-30T16:25:17.6246005Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-8/x64
+2026-07-30T16:25:17.6246466Z ##[endgroup]
+2026-07-30T16:25:17.6369395Z ##[group]Run chmod +x gradlew
+2026-07-30T16:25:17.6369726Z [36;1mchmod +x gradlew[0m
+2026-07-30T16:25:17.6370003Z [36;1m./gradlew assembleRelease[0m
+2026-07-30T16:25:17.6415013Z shell: /usr/bin/bash -e {0}
+2026-07-30T16:25:17.6415309Z env:
+2026-07-30T16:25:17.6415655Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-8/x64
+2026-07-30T16:25:17.6416181Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-8/x64
+2026-07-30T16:25:17.6416690Z   KEYSTORE_PASSWORD: ***
+2026-07-30T16:25:17.6416971Z   KEY_ALIAS: ***
+2026-07-30T16:25:17.6417216Z   KEY_PASSWORD: ***
+2026-07-30T16:25:17.6417450Z ##[endgroup]
+2026-07-30T16:25:17.8458852Z openjdk version "17.0.20" 2026-07-21
+2026-07-30T16:25:17.8459998Z OpenJDK Runtime Environment Temurin-17.0.20+8 (build 17.0.20+8)
+2026-07-30T16:25:17.8461205Z OpenJDK 64-Bit Server VM Temurin-17.0.20+8 (build 17.0.20+8, mixed mode, sharing)
+2026-07-30T16:25:18.8975032Z 
+2026-07-30T16:25:18.8983599Z Welcome to Gradle 8.2!
+2026-07-30T16:25:18.8983926Z 
+2026-07-30T16:25:18.8984157Z Here are the highlights of this release:
+2026-07-30T16:25:18.9001615Z  - Kotlin DSL: new reference documentation, assignment syntax by default
+2026-07-30T16:25:18.9002509Z  - Kotlin DSL is now the default with Gradle init
+2026-07-30T16:25:18.9002963Z  - Improved suggestions to resolve errors in console output
+2026-07-30T16:25:18.9003237Z 
+2026-07-30T16:25:18.9003484Z For more details see https://docs.gradle.org/8.2/release-notes.html
+2026-07-30T16:25:18.9003836Z 
+2026-07-30T16:25:19.1924025Z Starting a Gradle Daemon (subsequent builds will be faster)
+2026-07-30T16:25:28.6983747Z > Task :app:buildKotlinToolingMetadata
+2026-07-30T16:25:28.6989237Z > Task :app:checkKotlinGradlePluginConfigurationErrors
+2026-07-30T16:25:28.7012790Z > Task :app:preBuild UP-TO-DATE
+2026-07-30T16:25:28.7041520Z > Task :app:preReleaseBuild UP-TO-DATE
+2026-07-30T16:25:28.7042807Z > Task :app:generateReleaseBuildConfig FROM-CACHE
+2026-07-30T16:25:29.1939401Z > Task :app:generateReleaseResValues FROM-CACHE
+2026-07-30T16:25:29.1963794Z > Task :app:checkReleaseAarMetadata
+2026-07-30T16:25:29.2913264Z > Task :app:mapReleaseSourceSetPaths
+2026-07-30T16:25:29.2914159Z > Task :app:generateReleaseResources UP-TO-DATE
+2026-07-30T16:25:29.3911751Z > Task :app:mergeReleaseResources FROM-CACHE
+2026-07-30T16:25:29.3935056Z > Task :app:packageReleaseResources FROM-CACHE
+2026-07-30T16:25:32.0942993Z > Task :app:parseReleaseLocalResources FROM-CACHE
+2026-07-30T16:25:32.0972775Z > Task :app:createReleaseCompatibleScreenManifests
+2026-07-30T16:25:32.0996701Z > Task :app:extractDeepLinksRelease FROM-CACHE
+2026-07-30T16:25:32.1933693Z > Task :app:processReleaseMainManifest FROM-CACHE
+2026-07-30T16:25:32.1937850Z > Task :app:processReleaseManifest FROM-CACHE
+2026-07-30T16:25:32.1939264Z > Task :app:processReleaseManifestForPackage FROM-CACHE
+2026-07-30T16:25:32.3934008Z > Task :app:processReleaseResources FROM-CACHE
+2026-07-30T16:25:32.7931690Z > Task :app:javaPreCompileRelease FROM-CACHE
+2026-07-30T16:25:32.7950118Z > Task :app:extractProguardFiles
+2026-07-30T16:25:32.7975766Z > Task :app:mergeReleaseJniLibFolders FROM-CACHE
+2026-07-30T16:25:32.8942747Z > Task :app:mergeReleaseNativeLibs NO-SOURCE
+2026-07-30T16:25:32.8993085Z > Task :app:stripReleaseDebugSymbols NO-SOURCE
+2026-07-30T16:25:32.8993687Z > Task :app:extractReleaseNativeSymbolTables NO-SOURCE
+2026-07-30T16:25:32.9933088Z > Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+2026-07-30T16:25:33.1915184Z > Task :app:desugarReleaseFileDependencies FROM-CACHE
+2026-07-30T16:25:33.1925874Z > Task :app:checkReleaseDuplicateClasses
+2026-07-30T16:25:33.3933309Z > Task :app:mergeReleaseArtProfile
+2026-07-30T16:25:33.8953465Z > Task :app:mergeExtDexRelease FROM-CACHE
+2026-07-30T16:25:33.8965975Z > Task :app:mergeReleaseShaders FROM-CACHE
+2026-07-30T16:25:33.9023915Z > Task :app:compileReleaseShaders NO-SOURCE
+2026-07-30T16:25:33.9073083Z > Task :app:generateReleaseAssets UP-TO-DATE
+2026-07-30T16:25:33.9143374Z > Task :app:mergeReleaseAssets FROM-CACHE
+2026-07-30T16:25:33.9918965Z > Task :app:compressReleaseAssets FROM-CACHE
+2026-07-30T16:25:33.9934517Z > Task :app:optimizeReleaseResources FROM-CACHE
+2026-07-30T16:25:34.0917028Z > Task :app:collectReleaseDependencies
+2026-07-30T16:25:34.3943204Z > Task :app:sdkReleaseDependencyData
+2026-07-30T16:25:34.3944226Z > Task :app:validateSigningRelease
+2026-07-30T16:25:34.3972739Z > Task :app:writeReleaseAppMetadata
+2026-07-30T16:25:34.3993342Z > Task :app:writeReleaseSigningConfigVersions
+2026-07-30T16:25:41.1920737Z 
+2026-07-30T16:25:41.1926236Z e: file:///home/runner/work/alisworld/alisworld/android/app/src/main/java/com/alisworld/app/ui/screens/HistoryScreen.kt:67:35 Unresolved reference: filteredItems
+2026-07-30T16:25:41.1927568Z > Task :app:compileReleaseKotlin FAILED
+2026-07-30T16:25:41.1953872Z e: file:///home/runner/work/alisworld/alisworld/android/app/src/main/java/com/alisworld/app/ui/screens/HistoryScreen.kt:67:61 Unresolved reference: ticket
+2026-07-30T16:25:41.1964077Z e: file:///home/runner/work/alisworld/alisworld/android/app/src/main/java/com/alisworld/app/ui/screens/HistoryScreen.kt:67:85 Type mismatch: inferred type is Int but HistoryItem was expected
+2026-07-30T16:25:41.1980928Z e: file:///home/runner/work/alisworld/alisworld/android/app/src/main/java/com/alisworld/app/ui/screens/HistoryScreen.kt:68:33 Unresolved reference: filteredItems
+2026-07-30T16:25:41.2911109Z 
+2026-07-30T16:25:41.2942575Z 32 actionable tasks: 14 executed, 18 from cache
+2026-07-30T16:25:41.2943661Z FAILURE: Build failed with an exception.
+2026-07-30T16:25:41.2944189Z 
+2026-07-30T16:25:41.2944484Z * What went wrong:
+2026-07-30T16:25:41.2945150Z Execution failed for task ':app:compileReleaseKotlin'.
+2026-07-30T16:25:41.2946610Z > A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+2026-07-30T16:25:41.2948028Z    > Compilation error. See log for more details
+2026-07-30T16:25:41.2948564Z 
+2026-07-30T16:25:41.2948841Z * Try:
+2026-07-30T16:25:41.2949441Z > Run with --stacktrace option to get the stack trace.
+2026-07-30T16:25:41.2950239Z > Run with --info or --debug option to get more log output.
+2026-07-30T16:25:41.2950970Z > Run with --scan to get full insights.
+2026-07-30T16:25:41.2951870Z > Get more help at https://help.gradle.org.
+2026-07-30T16:25:41.2952536Z 
+2026-07-30T16:25:41.2952833Z BUILD FAILED in 23s
+2026-07-30T16:25:41.6870183Z ##[error]Process completed with exit code 1.
+2026-07-30T16:25:41.7017662Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-30T16:25:41.7019051Z Post job cleanup.
+2026-07-30T16:25:41.8324193Z (node:2426) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-07-30T16:25:41.8324988Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-07-30T16:25:41.8524873Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-30T16:25:41.8526107Z Post job cleanup.
+2026-07-30T16:25:41.9455273Z [command]/usr/bin/git version
+2026-07-30T16:25:41.9512801Z git version 2.54.0
+2026-07-30T16:25:41.9558732Z Temporarily overriding HOME='/home/runner/work/_temp/189b9909-f330-4d67-8308-6ce1974d67f2' before making global git config changes
+2026-07-30T16:25:41.9563172Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-30T16:25:41.9565187Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/alisworld/alisworld
+2026-07-30T16:25:41.9613749Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-30T16:25:41.9675646Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-30T16:25:41.9936702Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-30T16:25:41.9965501Z http.https://github.com/.extraheader
+2026-07-30T16:25:41.9976593Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-07-30T16:25:42.0012809Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-30T16:25:42.0279161Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-30T16:25:42.0316403Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-30T16:25:42.0718077Z Cleaning up orphan processes
+2026-07-30T16:25:42.1050262Z Terminate orphan process: pid (2265) (java)
+2026-07-30T16:25:42.1106807Z Terminate orphan process: pid (2376) (java)
+2026-07-30T16:25:42.1118522Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

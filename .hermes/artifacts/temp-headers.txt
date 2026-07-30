@@ -1,0 +1,10 @@
+HTTP/1.1 100 Continue
+
+HTTP/1.1 405 METHOD NOT ALLOWED
+Server: nginx/1.30.3
+Date: Thu, 30 Jul 2026 16:07:24 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 178
+Connection: keep-alive
+Allow: GET, HEAD, OPTIONS
+

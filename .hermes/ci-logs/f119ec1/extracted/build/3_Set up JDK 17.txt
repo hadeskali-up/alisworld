@@ -1,0 +1,43 @@
+﻿2026-07-30T16:25:07.0673517Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-07-30T16:25:07.0676389Z ##[group]Run actions/setup-java@v4
+2026-07-30T16:25:07.0676974Z with:
+2026-07-30T16:25:07.0677431Z   java-version: 17
+2026-07-30T16:25:07.0677932Z   distribution: temurin
+2026-07-30T16:25:07.0678448Z   cache: gradle
+2026-07-30T16:25:07.0678928Z   java-package: jdk
+2026-07-30T16:25:07.0679421Z   check-latest: false
+2026-07-30T16:25:07.0679926Z   server-id: github
+2026-07-30T16:25:07.0680421Z   server-username: GITHUB_ACTOR
+2026-07-30T16:25:07.0681013Z   server-password: GITHUB_TOKEN
+2026-07-30T16:25:07.0681613Z   overwrite-settings: true
+2026-07-30T16:25:07.0682300Z   job-status: success
+2026-07-30T16:25:07.0686550Z   token: ***
+2026-07-30T16:25:07.0687014Z ##[endgroup]
+2026-07-30T16:25:07.2271528Z ##[group]Installed distributions
+2026-07-30T16:25:07.2551173Z Resolved Java 17.0.20+8 from tool-cache
+2026-07-30T16:25:07.2562373Z (node:2181) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-07-30T16:25:07.2564663Z Setting Java 17.0.20+8 as the default
+2026-07-30T16:25:07.2566316Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-07-30T16:25:07.2567978Z Creating toolchains.xml for JDK version 17 from temurin
+2026-07-30T16:25:07.2634350Z Writing to /home/runner/.m2/toolchains.xml
+2026-07-30T16:25:07.2635358Z 
+2026-07-30T16:25:07.2635796Z Java configuration:
+2026-07-30T16:25:07.2636773Z   Distribution: temurin
+2026-07-30T16:25:07.2638125Z   Version: 17.0.20+8
+2026-07-30T16:25:07.2639477Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-8/x64
+2026-07-30T16:25:07.2640725Z 
+2026-07-30T16:25:07.2641759Z ##[endgroup]
+2026-07-30T16:25:07.2661420Z Creating settings.xml with server-id: github
+2026-07-30T16:25:07.2663505Z Writing to /home/runner/.m2/settings.xml
+2026-07-30T16:25:07.4110089Z Cache hit for: setup-java-Linux-x64-gradle-a5972982106a1f6ca56224d6b7857a6325b1ed8b20bf4283cf8203debffa2121
+2026-07-30T16:25:07.4214276Z (node:2181) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-07-30T16:25:08.4423053Z Received 163577856 of 1092210870 (15.0%), 156.0 MBs/sec
+2026-07-30T16:25:09.4463806Z Received 373293056 of 1092210870 (34.2%), 177.9 MBs/sec
+2026-07-30T16:25:10.4431653Z Received 532676608 of 1092210870 (48.8%), 169.3 MBs/sec
+2026-07-30T16:25:11.4437219Z Received 704643072 of 1092210870 (64.5%), 168.0 MBs/sec
+2026-07-30T16:25:12.4438257Z Received 931135488 of 1092210870 (85.3%), 177.5 MBs/sec
+2026-07-30T16:25:13.4113302Z Received 1092210870 of 1092210870 (100.0%), 174.5 MBs/sec
+2026-07-30T16:25:13.4114501Z Cache Size: ~1042 MB (1092210870 B)
+2026-07-30T16:25:13.4261870Z [command]/usr/bin/tar -xf /home/runner/work/_temp/d46816bc-4f3b-45b2-8b38-3b9c96fa23e8/cache.tzst -P -C /home/runner/work/alisworld/alisworld --use-compress-program unzstd
+2026-07-30T16:25:17.3409570Z Cache restored successfully
+2026-07-30T16:25:17.5564314Z Cache restored from key: setup-java-Linux-x64-gradle-a5972982106a1f6ca56224d6b7857a6325b1ed8b20bf4283cf8203debffa2121

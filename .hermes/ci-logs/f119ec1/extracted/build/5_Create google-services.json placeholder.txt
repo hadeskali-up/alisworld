@@ -1,0 +1,7 @@
+﻿2026-07-30T16:25:17.5993991Z ##[group]Run echo '{"project_info":{"project_number":"000000000000","project_id":"alisworld-placeholder"}}' > google-services.json
+2026-07-30T16:25:17.5994901Z [36;1mecho '{"project_info":{"project_number":"000000000000","project_id":"alisworld-placeholder"}}' > google-services.json[0m
+2026-07-30T16:25:17.6039845Z shell: /usr/bin/bash -e {0}
+2026-07-30T16:25:17.6040129Z env:
+2026-07-30T16:25:17.6040481Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-8/x64
+2026-07-30T16:25:17.6041032Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-8/x64
+2026-07-30T16:25:17.6041438Z ##[endgroup]

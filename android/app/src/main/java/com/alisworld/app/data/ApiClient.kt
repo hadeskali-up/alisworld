@@ -52,8 +52,13 @@ class ApiClient {
     }
 
     suspend fun getPositions(): Result<List<Position>> = runCatching {
-        val resp: MT5PositionsResponse = client.get("/api/mt5-positions").body()
-        resp.positions
+        try {
+            val resp: MT5PositionsResponse = client.get("/api/mt5-positions").body()
+            resp.positions
+        } catch (e: Exception) {
+            android.util.Log.e("ApiClient", "getPositions failed: ${e.message}", e)
+            throw e
+        }
     }
 
     suspend fun closePosition(ticket: Long): Result<ClosePositionResponse> = runCatching {

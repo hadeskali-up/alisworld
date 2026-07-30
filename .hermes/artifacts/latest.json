@@ -1,0 +1,25 @@
+{
+  "total_count": 1,
+  "artifacts": [
+    {
+      "id": 8767085787,
+      "node_id": "MDg6QXJ0aWZhY3Q4NzY3MDg1Nzg3",
+      "name": "alisworld-release",
+      "size_in_bytes": 12455613,
+      "url": "https://api.github.com/repos/hadeskali-up/alisworld/actions/artifacts/8767085787",
+      "archive_download_url": "https://api.github.com/repos/hadeskali-up/alisworld/actions/artifacts/8767085787/zip",
+      "expired": false,
+      "digest": "sha256:e0a78812318917bd3f3224220b1e0533fb45050ff39b5d5bed5a0f82754f0def",
+      "created_at": "2026-07-30T16:28:09Z",
+      "updated_at": "2026-07-30T16:28:09Z",
+      "expires_at": "2026-10-28T16:26:41Z",
+      "workflow_run": {
+        "id": 30561476810,
+        "repository_id": 1316301671,
+        "head_repository_id": 1316301671,
+        "head_branch": "master",
+        "head_sha": "b5ac316b4564c44f118db8dd909f0b80067f551b"
+      }
+    }
+  ]
+}

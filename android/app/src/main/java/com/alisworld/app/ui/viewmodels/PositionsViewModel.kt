@@ -26,7 +26,15 @@ class PositionsViewModel : ViewModel() {
             _uiState.value = _uiState.value.copy(isLoading = true, error = null)
             ApiClient.instance.getPositions()
                 .onSuccess { positions -> _uiState.value = _uiState.value.copy(isLoading = false, positions = positions, error = null) }
-                .onFailure { error -> _uiState.value = _uiState.value.copy(isLoading = false, error = error.message ?: "Unable to load positions") }
+                .onFailure { error -> 
+                    android.util.Log.e("PositionsViewModel", "Load positions failed: ${error.message}", error)
+                    val errorMsg = when {
+                        error.message?.contains("CommandResponse") == true -> 
+                            "API response format error. Try force-closing the app and reopening."
+                        else -> error.message ?: "Unable to load positions"
+                    }
+                    _uiState.value = _uiState.value.copy(isLoading = false, error = errorMsg)
+                }
         }
     }
 

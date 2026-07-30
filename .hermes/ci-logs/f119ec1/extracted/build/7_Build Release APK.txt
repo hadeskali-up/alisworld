@@ -1,0 +1,88 @@
+﻿2026-07-30T16:25:17.6369377Z ##[group]Run chmod +x gradlew
+2026-07-30T16:25:17.6369722Z [36;1mchmod +x gradlew[0m
+2026-07-30T16:25:17.6370000Z [36;1m./gradlew assembleRelease[0m
+2026-07-30T16:25:17.6415000Z shell: /usr/bin/bash -e {0}
+2026-07-30T16:25:17.6415305Z env:
+2026-07-30T16:25:17.6415650Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-8/x64
+2026-07-30T16:25:17.6416178Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-8/x64
+2026-07-30T16:25:17.6416687Z   KEYSTORE_PASSWORD: ***
+2026-07-30T16:25:17.6416968Z   KEY_ALIAS: ***
+2026-07-30T16:25:17.6417213Z   KEY_PASSWORD: ***
+2026-07-30T16:25:17.6417446Z ##[endgroup]
+2026-07-30T16:25:17.8458804Z openjdk version "17.0.20" 2026-07-21
+2026-07-30T16:25:17.8459986Z OpenJDK Runtime Environment Temurin-17.0.20+8 (build 17.0.20+8)
+2026-07-30T16:25:17.8461197Z OpenJDK 64-Bit Server VM Temurin-17.0.20+8 (build 17.0.20+8, mixed mode, sharing)
+2026-07-30T16:25:18.8974975Z 
+2026-07-30T16:25:18.8983475Z Welcome to Gradle 8.2!
+2026-07-30T16:25:18.8983923Z 
+2026-07-30T16:25:18.8984154Z Here are the highlights of this release:
+2026-07-30T16:25:18.9001600Z  - Kotlin DSL: new reference documentation, assignment syntax by default
+2026-07-30T16:25:18.9002505Z  - Kotlin DSL is now the default with Gradle init
+2026-07-30T16:25:18.9002960Z  - Improved suggestions to resolve errors in console output
+2026-07-30T16:25:18.9003234Z 
+2026-07-30T16:25:18.9003481Z For more details see https://docs.gradle.org/8.2/release-notes.html
+2026-07-30T16:25:18.9003825Z 
+2026-07-30T16:25:19.1923981Z Starting a Gradle Daemon (subsequent builds will be faster)
+2026-07-30T16:25:28.6983691Z > Task :app:buildKotlinToolingMetadata
+2026-07-30T16:25:28.6989223Z > Task :app:checkKotlinGradlePluginConfigurationErrors
+2026-07-30T16:25:28.7012777Z > Task :app:preBuild UP-TO-DATE
+2026-07-30T16:25:28.7041505Z > Task :app:preReleaseBuild UP-TO-DATE
+2026-07-30T16:25:28.7042797Z > Task :app:generateReleaseBuildConfig FROM-CACHE
+2026-07-30T16:25:29.1939292Z > Task :app:generateReleaseResValues FROM-CACHE
+2026-07-30T16:25:29.1963763Z > Task :app:checkReleaseAarMetadata
+2026-07-30T16:25:29.2913212Z > Task :app:mapReleaseSourceSetPaths
+2026-07-30T16:25:29.2914154Z > Task :app:generateReleaseResources UP-TO-DATE
+2026-07-30T16:25:29.3911714Z > Task :app:mergeReleaseResources FROM-CACHE
+2026-07-30T16:25:29.3935044Z > Task :app:packageReleaseResources FROM-CACHE
+2026-07-30T16:25:32.0942949Z > Task :app:parseReleaseLocalResources FROM-CACHE
+2026-07-30T16:25:32.0972760Z > Task :app:createReleaseCompatibleScreenManifests
+2026-07-30T16:25:32.0996688Z > Task :app:extractDeepLinksRelease FROM-CACHE
+2026-07-30T16:25:32.1933645Z > Task :app:processReleaseMainManifest FROM-CACHE
+2026-07-30T16:25:32.1937834Z > Task :app:processReleaseManifest FROM-CACHE
+2026-07-30T16:25:32.1939257Z > Task :app:processReleaseManifestForPackage FROM-CACHE
+2026-07-30T16:25:32.3933978Z > Task :app:processReleaseResources FROM-CACHE
+2026-07-30T16:25:32.7931642Z > Task :app:javaPreCompileRelease FROM-CACHE
+2026-07-30T16:25:32.7950062Z > Task :app:extractProguardFiles
+2026-07-30T16:25:32.7975749Z > Task :app:mergeReleaseJniLibFolders FROM-CACHE
+2026-07-30T16:25:32.8942724Z > Task :app:mergeReleaseNativeLibs NO-SOURCE
+2026-07-30T16:25:32.8993061Z > Task :app:stripReleaseDebugSymbols NO-SOURCE
+2026-07-30T16:25:32.8993683Z > Task :app:extractReleaseNativeSymbolTables NO-SOURCE
+2026-07-30T16:25:32.9933037Z > Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+2026-07-30T16:25:33.1915131Z > Task :app:desugarReleaseFileDependencies FROM-CACHE
+2026-07-30T16:25:33.1925861Z > Task :app:checkReleaseDuplicateClasses
+2026-07-30T16:25:33.3933260Z > Task :app:mergeReleaseArtProfile
+2026-07-30T16:25:33.8953413Z > Task :app:mergeExtDexRelease FROM-CACHE
+2026-07-30T16:25:33.8965958Z > Task :app:mergeReleaseShaders FROM-CACHE
+2026-07-30T16:25:33.9023899Z > Task :app:compileReleaseShaders NO-SOURCE
+2026-07-30T16:25:33.9073065Z > Task :app:generateReleaseAssets UP-TO-DATE
+2026-07-30T16:25:33.9142876Z > Task :app:mergeReleaseAssets FROM-CACHE
+2026-07-30T16:25:33.9918904Z > Task :app:compressReleaseAssets FROM-CACHE
+2026-07-30T16:25:33.9934503Z > Task :app:optimizeReleaseResources FROM-CACHE
+2026-07-30T16:25:34.0916966Z > Task :app:collectReleaseDependencies
+2026-07-30T16:25:34.3943152Z > Task :app:sdkReleaseDependencyData
+2026-07-30T16:25:34.3944222Z > Task :app:validateSigningRelease
+2026-07-30T16:25:34.3972724Z > Task :app:writeReleaseAppMetadata
+2026-07-30T16:25:34.3993327Z > Task :app:writeReleaseSigningConfigVersions
+2026-07-30T16:25:41.1920686Z 
+2026-07-30T16:25:41.1926220Z e: file:///home/runner/work/alisworld/alisworld/android/app/src/main/java/com/alisworld/app/ui/screens/HistoryScreen.kt:67:35 Unresolved reference: filteredItems
+2026-07-30T16:25:41.1927564Z > Task :app:compileReleaseKotlin FAILED
+2026-07-30T16:25:41.1953854Z e: file:///home/runner/work/alisworld/alisworld/android/app/src/main/java/com/alisworld/app/ui/screens/HistoryScreen.kt:67:61 Unresolved reference: ticket
+2026-07-30T16:25:41.1964033Z e: file:///home/runner/work/alisworld/alisworld/android/app/src/main/java/com/alisworld/app/ui/screens/HistoryScreen.kt:67:85 Type mismatch: inferred type is Int but HistoryItem was expected
+2026-07-30T16:25:41.1980914Z e: file:///home/runner/work/alisworld/alisworld/android/app/src/main/java/com/alisworld/app/ui/screens/HistoryScreen.kt:68:33 Unresolved reference: filteredItems
+2026-07-30T16:25:41.2911054Z 
+2026-07-30T16:25:41.2942558Z 32 actionable tasks: 14 executed, 18 from cache
+2026-07-30T16:25:41.2943657Z FAILURE: Build failed with an exception.
+2026-07-30T16:25:41.2944184Z 
+2026-07-30T16:25:41.2944480Z * What went wrong:
+2026-07-30T16:25:41.2945145Z Execution failed for task ':app:compileReleaseKotlin'.
+2026-07-30T16:25:41.2946603Z > A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+2026-07-30T16:25:41.2948023Z    > Compilation error. See log for more details
+2026-07-30T16:25:41.2948560Z 
+2026-07-30T16:25:41.2948837Z * Try:
+2026-07-30T16:25:41.2949418Z > Run with --stacktrace option to get the stack trace.
+2026-07-30T16:25:41.2950232Z > Run with --info or --debug option to get more log output.
+2026-07-30T16:25:41.2950967Z > Run with --scan to get full insights.
+2026-07-30T16:25:41.2951866Z > Get more help at https://help.gradle.org.
+2026-07-30T16:25:41.2952532Z 
+2026-07-30T16:25:41.2952829Z BUILD FAILED in 23s
+2026-07-30T16:25:41.6870159Z ##[error]Process completed with exit code 1.
