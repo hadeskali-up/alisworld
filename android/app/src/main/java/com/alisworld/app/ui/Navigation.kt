@@ -58,7 +58,16 @@ fun AlisWorldNavHost() {
             startDestination = Screen.Dashboard.route,
             modifier = Modifier.padding(paddingValues)
         ) {
-            composable(Screen.Dashboard.route) { DashboardScreen() }
+            composable(Screen.Dashboard.route) {
+                DashboardScreen(
+                    onOpenPositions = {
+                        navController.navigate(Screen.Positions.route) {
+                            launchSingleTop = true
+                            restoreState = true
+                        }
+                    }
+                )
+            }
             composable(Screen.Positions.route) { PositionsScreen() }
             composable(Screen.History.route) { HistoryScreen() }
         }

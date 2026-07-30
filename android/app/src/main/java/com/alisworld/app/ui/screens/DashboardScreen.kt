@@ -1,6 +1,7 @@
 package com.alisworld.app.ui.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -31,7 +32,10 @@ import java.util.Locale
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DashboardScreen(viewModel: DashboardViewModel = viewModel()) {
+fun DashboardScreen(
+    onOpenPositions: () -> Unit = {},
+    viewModel: DashboardViewModel = viewModel()
+) {
     val uiState by viewModel.uiState.collectAsState()
     LaunchedEffect(Unit) { viewModel.loadDashboard() }
 
@@ -59,7 +63,10 @@ fun DashboardScreen(viewModel: DashboardViewModel = viewModel()) {
         ) {
             when {
                 uiState.error != null -> DashboardError(uiState.error ?: "Unable to load portfolio", viewModel::loadDashboard)
-                uiState.summary != null -> DashboardContent(uiState.summary!!)
+                uiState.summary != null -> DashboardContent(
+                    summary = uiState.summary!!,
+                    onOpenPositions = onOpenPositions
+                )
                 else -> Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) { CircularProgressIndicator() }
             }
         }
@@ -67,7 +74,10 @@ fun DashboardScreen(viewModel: DashboardViewModel = viewModel()) {
 }
 
 @Composable
-private fun DashboardContent(summary: DashboardSummary) {
+private fun DashboardContent(
+    summary: DashboardSummary,
+    onOpenPositions: () -> Unit
+) {
     val positive = summary.dailyPnl >= 0
     val pnlColor = if (positive) GreenProfit else RedLoss
     Column(
@@ -78,7 +88,9 @@ private fun DashboardContent(summary: DashboardSummary) {
         Text("Live figures from your connected MT5 terminal", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
 
         Card(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable(onClick = onOpenPositions),
             shape = RoundedCornerShape(24.dp),
             colors = CardDefaults.cardColors(containerColor = Color.Transparent)
         ) {
@@ -94,7 +106,13 @@ private fun DashboardContent(summary: DashboardSummary) {
                     color = Color.White.copy(alpha = 0.86f),
                     style = MaterialTheme.typography.bodyMedium
                 )
-                Spacer(Modifier.height(20.dp))
+                Spacer(Modifier.height(6.dp))
+                Text(
+                    text = "Tap to view open positions",
+                    color = Color.White.copy(alpha = 0.72f),
+                    style = MaterialTheme.typography.labelMedium
+                )
+                Spacer(Modifier.height(14.dp))
                 HorizontalDivider(color = Color.White.copy(alpha = 0.18f))
                 Spacer(Modifier.height(14.dp))
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {

@@ -52,8 +52,9 @@ data class Position(
     @SerialName("price_current") val currentPrice: Double,
     val sl: Double,
     val tp: Double,
-    val swap: Double,
-    val commission: Double,
+    val swap: Double = 0.0,
+    // The live bridge response does not send commission for open positions.
+    val commission: Double = 0.0,
     val profit: Double,
     @SerialName("pnl_pct") val pnlPct: Double? = null,
     @SerialName("tp_progress") val tpProgress: Double? = null,
