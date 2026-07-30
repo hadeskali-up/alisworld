@@ -64,8 +64,8 @@ fun HistoryScreen(viewModel: HistoryViewModel = viewModel()) {
                     verticalArrangement = Arrangement.spacedBy(10.dp)
                 ) {
                     item { HistoryInsights(uiState, viewModel::selectSymbol) }
-                    items(uiState.filteredItems, key = { it.ticket }) { HistoryCard(it) }
-                    if (uiState.filteredItems.isEmpty()) item { FilterEmpty(uiState.selectedSymbol) }
+                    items(uiState.items, key = { it.ticket }) { HistoryCard(it) }
+                    if (uiState.items.isEmpty()) item { FilterEmpty(uiState.selectedSymbol) }
                 }
             }
         }
