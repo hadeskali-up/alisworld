@@ -143,6 +143,19 @@ data class SymbolStatsResponse(
 )
 
 // Commands
+// Use concrete @Serializable request models. Sending nested Map values makes
+// Kotlinx Serialization look for a polymorphic LinkedHashMap serializer at runtime.
+@Serializable
+data class ClosePositionPayload(
+    val ticket: Long
+)
+
+@Serializable
+data class ClosePositionCommand(
+    @SerialName("command_type") val commandType: String = "close_position",
+    val payload: ClosePositionPayload
+)
+
 @Serializable
 data class ClosePositionResponse(
     @SerialName("command_id") val commandId: String,

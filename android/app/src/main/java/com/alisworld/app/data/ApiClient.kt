@@ -58,10 +58,7 @@ class ApiClient {
 
     suspend fun closePosition(ticket: Long): Result<ClosePositionResponse> = runCatching {
         val resp: CommandResponse = client.post("/api/mt5-commands") {
-            setBody(mapOf(
-                "command_type" to "close_position",
-                "payload" to mapOf("ticket" to ticket)
-            ))
+            setBody(ClosePositionCommand(payload = ClosePositionPayload(ticket)))
         }.body()
         ClosePositionResponse(commandId = resp.id.toString(), status = resp.status)
     }
