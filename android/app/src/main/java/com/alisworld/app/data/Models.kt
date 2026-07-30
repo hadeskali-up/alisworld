@@ -98,7 +98,11 @@ data class HistoryItem(
 data class HistoryResponse(
     val items: List<HistoryItem>,
     val total: Int,
-    @SerialName("has_more") val hasMore: Boolean
+    @SerialName("has_more") val hasMore: Boolean,
+    val symbols: List<String> = emptyList(),
+    val dailyPnl: Double = 0.0,
+    val allTimePnl: Double = 0.0,
+    val filteredListPnl: Double = 0.0
 )
 
 // Bridge MT5 History Response
@@ -116,9 +120,18 @@ data class MT5Deal(
     val commission: Double,
     val swap: Double,
     val fee: Double,
+    @SerialName("net_pnl") val netPnl: Double = profit + commission + swap + fee,
     val time: String,
     val comment: String,
     val magic: Int
+)
+
+@Serializable
+data class MT5HistorySummary(
+    @SerialName("daily_pnl") val dailyPnl: Double,
+    @SerialName("all_time_pnl") val allTimePnl: Double,
+    @SerialName("filtered_list_pnl") val filteredListPnl: Double,
+    @SerialName("today_myt") val todayMyt: String
 )
 
 @Serializable
@@ -126,7 +139,11 @@ data class MT5HistoryResponse(
     val deals: List<MT5Deal>,
     val count: Int,
     @SerialName("total_pnl") val totalPnl: Double,
-    @SerialName("last_updated") val lastUpdated: String
+    @SerialName("last_updated") val lastUpdated: String,
+    val total: Int = 0,
+    @SerialName("has_more") val hasMore: Boolean = false,
+    val symbols: List<String> = emptyList(),
+    val summary: MT5HistorySummary? = null
 )
 
 // Symbol Stats

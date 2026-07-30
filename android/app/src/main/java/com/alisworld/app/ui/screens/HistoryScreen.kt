@@ -78,12 +78,12 @@ private fun HistoryInsights(state: HistoryUiState, onSelectSymbol: (String?) -> 
     var expanded by remember { mutableStateOf(false) }
     Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-            PnlMetric("DAILY P&L", formatPnl(state.dailyPnlMalaysia), Modifier.weight(1f))
-            PnlMetric("AVAILABLE HISTORY", formatPnl(state.availableHistoryPnl), Modifier.weight(1f))
+            PnlMetric("DAILY P&L", formatPnl(state.dailyPnl), Modifier.weight(1f))
+            PnlMetric("ALL-TIME P&L", formatPnl(state.allTimePnl), Modifier.weight(1f))
         }
         PnlMetric(
             label = if (state.selectedSymbol == null) "THIS LIST P&L" else "${state.selectedSymbol} P&L",
-            value = formatPnl(state.listPnl),
+            value = formatPnl(state.filteredListPnl),
             modifier = Modifier.fillMaxWidth()
         )
         ExposedDropdownMenuBox(expanded = expanded, onExpandedChange = { expanded = !expanded }) {
@@ -103,7 +103,7 @@ private fun HistoryInsights(state: HistoryUiState, onSelectSymbol: (String?) -> 
             }
         }
         Text(
-            "Daily P&L uses Malaysia time (UTC+8). Available history is currently limited by the bridge feed.",
+            "Daily P&L uses Malaysia time (UTC+8). All-time P&L is calculated from stored realised trades.",
             style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )

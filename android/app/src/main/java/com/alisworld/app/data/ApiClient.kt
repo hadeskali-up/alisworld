@@ -64,38 +64,25 @@ class ApiClient {
     }
 
     suspend fun getHistory(
-        sort: String = "close_time",
-        order: String = "desc",
         limit: Int = 50,
-        offset: Int = 0
+        offset: Int = 0,
+        symbol: String? = null
     ): Result<HistoryResponse> = runCatching {
         val resp: MT5HistoryResponse = client.get("/api/mt5-history") {
             parameter("limit", limit)
+            parameter("offset", offset)
+            symbol?.let { parameter("symbol", it) }
         }.body()
-        
-        // MT5 deal entry=1 means a closing deal. Entry deals (entry=0) are excluded:
-        // the History tab is intentionally a realised-P&L view only.
-        val closedDeals = resp.deals.filter { it.entry == 1 }
         HistoryResponse(
-            items = closedDeals.map { deal ->
-                HistoryItem(
-                    ticket = deal.ticket,
-                    symbol = deal.symbol,
-                    type = deal.type,
-                    volume = deal.volume,
-                    openPrice = deal.price,
-                    closePrice = deal.price,
-                    swap = deal.swap,
-                    commission = deal.commission,
-                    profit = deal.profit,
-                    result = if (deal.profit >= 0) "win" else "loss",
-                    closeReason = deal.comment,
-                    openTime = deal.time,
-                    closeTime = deal.time
-                )
+            items = resp.deals.map { deal ->
+                HistoryItem(deal.ticket, deal.symbol, deal.type, deal.volume, deal.price, deal.price, deal.swap, deal.commission, deal.netPnl, if (deal.netPnl >= 0) "win" else "loss", deal.comment, deal.time, deal.time)
             },
-            total = closedDeals.size,
-            hasMore = false
+            total = resp.total,
+            hasMore = resp.hasMore,
+            symbols = resp.symbols,
+            dailyPnl = resp.summary?.dailyPnl ?: 0.0,
+            allTimePnl = resp.summary?.allTimePnl ?: 0.0,
+            filteredListPnl = resp.summary?.filteredListPnl ?: 0.0
         )
     }
 
