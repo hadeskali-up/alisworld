@@ -79,9 +79,20 @@ class ApiClient {
             symbol?.let { parameter("symbol", it) }
         }.body()
         HistoryResponse(
-            items = resp.deals.map { deal ->
-                HistoryItem(deal.ticket, deal.symbol, deal.type, deal.volume, deal.price, deal.price, deal.swap, deal.commission, deal.netPnl, if (deal.netPnl >= 0) "win" else "loss", deal.comment, deal.time, deal.time)
-            },
+            items = resp.deals
+                // A closed-trade screen must never render entry deals.
+                .filter { it.entry == 1 }
+                .map { deal ->
+                    // MT5 history reports the EXIT deal direction. For a market
+                    // position, the exit is opposite the original position:
+                    // closing BUY => original SELL, closing SELL => original BUY.
+                    val originalType = when (deal.typeRaw) {
+                        0 -> "sell" // DEAL_TYPE_BUY (exit)
+                        1 -> "buy"  // DEAL_TYPE_SELL (exit)
+                        else -> deal.type.lowercase()
+                    }
+                    HistoryItem(deal.ticket, deal.symbol, originalType, deal.volume, deal.price, deal.price, deal.swap, deal.commission, deal.netPnl, if (deal.netPnl >= 0) "win" else "loss", deal.comment, deal.time, deal.time)
+                },
             total = resp.total,
             hasMore = resp.hasMore,
             symbols = resp.symbols,
